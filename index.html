@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Skill Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: white;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .video-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 0;
+        }
+        .video-item {
+            background: #ff8c00;
+            color: white;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.3s;
+            cursor: pointer;
+            padding: 10px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .video-item:hover {
+            transform: scale(1.05);
+            background: #ff6500;
+        }
+        .logo {
+            width: 250px;
+            margin: 20px auto;
+            display: block;
+        }
+        .thumbnail {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 10px;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <img src="LOGO.jpg" alt="Tech Skill Guide Logo" class="logo">
+    <h2><b>Tech Skill Guide</b></h2>
+    <p style="font-size: 20px; font-style: italic;">Sharing : Gaining</p>
+    <p>Welcome! Only subscribed students can access the recordings.</p>
+    
+    <div class="container">
+        <h3>Latest Videos</h3>
+        <div class="video-list" id="videoList">
+            <!-- Video thumbnails will be inserted here dynamically -->
+        </div>
+    </div>
+    
+    <script>
+        // Sample video links (Replace with your actual YouTube/Drive links)
+        const videos = [
+            { title: "Day 1: Java Basics", url: "https://www.youtube.com/watch?v=3b-Wprhc_P8", id: "3b-Wprhc_P8", thumb: "day1.webp" },
+            { title: "Day 2: OOP in Java", url: "https://www.youtube.com/watch?v=YYYYYY", id: "YYYYYY", thumb: "day2.webp" }
+        ];
+
+        const videoList = document.getElementById("videoList");
+        videos.forEach((video) => {
+            const div = document.createElement("div");
+            div.classList.add("video-item");
+            div.innerHTML = `
+                <img src="${video.thumb}" alt="${video.title}" class="thumbnail">
+                <p>${video.title}</p>
+            `;
+            div.addEventListener("click", () => {
+                window.open(video.url, "_blank");
+            });
+            videoList.appendChild(div);
+        });
+    </script>
+</body>
+</html>
